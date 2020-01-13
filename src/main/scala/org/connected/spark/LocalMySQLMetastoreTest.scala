@@ -41,5 +41,6 @@ object LocalMySQLMetastoreTest {
     df2.write.mode(SaveMode.Overwrite).insertInto("sparkdemo.table2")
     spark.sql("SELECT * FROM sparkdemo.table2").show
     spark.sql("SHOW PARTITIONS sparkdemo.table2").show
+    spark.catalog.refreshTable("sparkdemo.table2")  // Should be used to see latest data added by other process
   }
 }

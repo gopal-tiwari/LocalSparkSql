@@ -25,7 +25,6 @@ object LocalSparkHiveTest {
     ).toDF("id","name")
 
     df.write.mode(SaveMode.Append).format("hive").saveAsTable("sparkdemo.table1")
-    //Thread.sleep(60 * 1000)
     spark.sql("SELECT * FROM sparkdemo.table1").show(false)
     println(spark.sql("select * from sparkdemo.table1").count)
 
